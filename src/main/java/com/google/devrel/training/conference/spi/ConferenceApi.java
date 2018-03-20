@@ -211,7 +211,6 @@ public class ConferenceApi {
 			organizersKeyList.add(Key.create(Profile.class, conference.getOrganizerUserId()));
 			result.add(conference);
 		}
-		// To avoid separate datastore gets for each Conference, pre-fetch the Profiles.
 		ofy().load().keys(organizersKeyList);
 		return result;
 	}
